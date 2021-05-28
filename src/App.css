@@ -1,0 +1,156 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus, :active {
+  outline: none;
+}
+
+a:focus, a:active {
+  outline: none;
+}
+
+nav, footer, header, aside {
+  display: block;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+:root {
+  --rootcolor: #FFCC78;
+  --rootcolorsecond: #FF805D;
+  --transition: .4s ease;
+  --loadbar: #FF805D;
+  --accept: #25D366;
+}
+
+.theme_light {
+  --bgmain: #fff;
+  --bgnav: #eaeaea;
+  --text: #141418;
+  --acsent: #8d8d8d;
+  --shadow: rgba(0, 0, 0, 0.25);
+}
+
+.theme_dark {
+  --bgmain: #141418;
+  --bgnav: #23232E;
+  --text: #fff;
+  --acsent: #e7e7e7;
+  --shadow: rgba(255, 255, 255, 0.20);
+}
+
+.App {
+  overflow:hidden;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 2fr 8fr 2fr;
+  grid-template-areas: "menu game statistic";
+  background: var(--bgmain);
+  transition: var(--transition);
+  position: relative;
+}
+
+.header {
+  transition: var(--transition);
+  grid-area: menu;
+}
+
+.aside {
+  transition: var(--transition);
+  grid-area: statistic;
+}
+
+main {
+  grid-area: game;
+  display: grid;
+  place-items: center;
+}
+
+@media(max-width:1024px) {
+  .App {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "game";
+  }
+  .header {
+    grid-area: 1;
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    left: -120%;
+    height: 100%;
+    z-index: 3;
+  }
+  .aside {
+    grid-area: 1;
+    position: absolute;
+    top: 0;
+    width: 75vw;
+    right: -120%;
+    height: 100%;
+    z-index: 3;
+  }
+  .header.active{
+    left: 0;
+  }
+  .aside.active{
+    right: 0%;
+  }
+}

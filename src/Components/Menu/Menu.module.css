@@ -1,0 +1,253 @@
+.wrapper {
+    transition: var(--transition);
+    padding: 15px;
+    background: var(--bgnav);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-radius: 0 10px 10px 0;
+}
+
+.guessed_cards, .count_cards, .level, .nameWrapper, .endWrapper, .startWrapper {
+    width: 100%;
+    margin-bottom: 10px;
+    display: grid;
+    place-items: center;
+}
+
+.startWrapper {
+    margin-top: 35px;
+}
+
+.btn {
+    transition: var(--transition);
+    padding: 10px;
+    font-size: 1.5em;
+    border-radius: 10px;
+}
+
+.endWrapper .btn {
+    background: var(--rootcolorsecond);
+}
+
+.startWrapper .btn {
+    background: var(--rootcolor);
+}
+
+.startWrapper .btn:hover, .endWrapper .btn:hover {
+    filter: hue-rotate(120deg)
+}
+
+.burger {
+    transition: var(--transition);
+    position: fixed;
+    top: 20px;
+    left: -100%;
+    width: 35px;
+    height: 35px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}
+
+.burger_line_1, .burger_line_3, .burger_line_2 {
+    position: relative;
+    left: 0;
+    border-radius: 1.5px;
+    height: 3px;
+    width: 100%;
+    background: var(--text);
+    transition: var(--transition);
+}
+
+.burger_line_3 {
+    bottom: 7px;
+}
+
+.burger_line_1 {
+    top: 7px;
+}
+
+.burger.active .burger_line_2 {
+    transform: scale(0) rotate(45deg);
+}
+
+.burger.active .burger_line_1 {
+    transform: rotate(45deg);
+    top: 12px;
+}
+
+.burger.active .burger_line_3 {
+    transform: rotate(-45deg);
+    bottom: 12px;
+}
+
+.nameWrapper {
+    transition: var(--transition);
+    position: relative;
+}
+
+.nameLabel {
+    transition: var(--transition);
+    color: var(--text);
+    background: var(--bgnav);
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%)
+}
+
+.nameWrapper input {
+    background: var(--bgnav);
+    border: 1px solid var(--text);
+    border-radius: 5px;
+    color: var(--text);
+    padding: 5px;
+}
+
+.nameWrapper.active {
+    margin-top: 10px;
+}
+
+.nameWrapper.active .nameLabel {
+    top: -5px
+}
+
+.levelLabel {
+    transition: var(--transition);
+    margin-bottom: 10px;
+    color: var(--text)
+}
+
+.level input {
+    transition: var(--transition);
+    overflow: hidden;
+    width: 80%;
+    -webkit-appearance: none;
+    background-color: var(--text);
+    border-radius: 4px;
+}
+
+.level input::-webkit-slider-runnable-track {
+    height: 8px;
+    -webkit-appearance: none;
+    color: var(--rootcolor);
+    margin-top: -1px;
+    cursor: pointer;
+}
+
+.level input::-webkit-slider-thumb {
+    width: 1px;
+    -webkit-appearance: none;
+    height: 8px;
+    cursor: pointer;
+    background: var(--rootcolor);
+    box-shadow: -80px 0 0 80px var(--rootcolor);
+}
+
+/** FF*/
+
+.level input::-moz-range-progress {
+    background-color: var(--rootcolor);
+}
+
+.level input::-moz-range-track {
+    background-color: var(--text);
+}
+
+/* IE*/
+
+.level input::-ms-fill-lower {
+    background-color: var(--rootcolor);
+}
+
+.level input::-ms-fill-upper {
+    background-color: var(--text);
+}
+
+.count_cards {
+    transition: var(--transition);
+    cursor: pointer;
+    user-select: none;
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+}
+
+.count_cards span {
+    margin-left: 5px;
+}
+
+.count_cards input {
+    color: var(--text);
+    background: var(--bgnav);
+    padding: 5px;
+}
+
+.guessed_cards {
+    transition: var(--transition);
+    color: var(--text)
+}
+
+.toggleTheme {
+    margin-top: auto;
+    height: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.themeWrapper {
+    transition: var(--transition);
+    width: 40px;
+    height: 100%;
+    border-radius: 10px;
+    background: var(--text);
+    position: relative;
+    cursor: pointer;
+}
+
+.themeWrapper span {
+    transition: var(--transition);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--bgmain);
+    position: absolute;
+    left: 2px;
+    top: 2px;
+}
+
+.themeWrapper.active span {
+    left: 22px;
+}
+
+.toggleTheme span {
+    color: var(--text)
+}
+
+@media(max-width:1024px) {
+    .burger {
+        left: 15px;
+    }
+    .btn {
+        font-size: 3em;
+    }
+    .nameLabel,
+    .levelLabel,
+    .count_cards,
+    .guessed_cards,
+    .toggleTheme,
+    .nameWrapper input {
+        font-size: 2em;
+    }
+    .guessed_cards, .count_cards, .level, .nameWrapper, .endWrapper, .startWrapper {
+        margin-bottom: 20px;
+    }
+    .count_cards input{
+        font-size: 1em;
+    }
+    .themeWrapper{
+        transform: scale(1.5);
+    }
+}

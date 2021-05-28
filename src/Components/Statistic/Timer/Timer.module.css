@@ -1,0 +1,5 @@
+.timer{
+    transition: var(--transition);
+    font-size: 3em;
+    color: var(--text);
+}
